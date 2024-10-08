@@ -1,0 +1,102 @@
+.dashboardContent {
+  padding: 1.5rem;
+
+  .overviewGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+
+    @media (min-width: 640px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 769px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .statCard {
+      padding: 1.5rem;
+      box-shadow: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.1);
+      border-radius: 0.375rem;
+      border-top: 1px solid gray;
+
+      h3 {
+        font-size: 0.875rem;
+        color: #6b7280;
+      }
+
+      p {
+        font-size: 0.875rem;
+        font-weight: bold;
+      }
+
+      span {
+        font-size: 0.875rem;
+        padding: 0.25rem;
+        border-radius: 0.3125rem;
+
+        &.increase {
+          background-color: rgba(45, 238, 6, 0.2);
+          color: rgba(45, 238, 6, 0.5);
+        }
+
+        &.decrease {
+          background-color: rgba(178, 23, 85, 0.2);
+          color: rgba(178, 23, 85, 0.5);
+        }
+      }
+    }
+  }
+
+  .tableContainer {
+    height: 18.75rem;
+    overflow-y: auto;
+    box-shadow: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.375rem;
+    margin-top: 1.5rem;
+
+    @media (min-width: 768px) {
+      height: 26.875rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      tbody tr td:nth-child(2) {
+        color: #808080;
+      }
+
+      thead {
+        position: sticky;
+        top: 0;
+        background-color: #1f1f1f;
+        z-index: 1;
+      }
+
+      th,
+      td {
+        padding: 1rem;
+        text-align: left;
+      }
+
+      th {
+        font-size: 0.875rem;
+        color: #6b7280;
+      }
+
+      td {
+        font-size: 0.875rem;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    top: 3rem;
+    position: relative;
+  }
+}

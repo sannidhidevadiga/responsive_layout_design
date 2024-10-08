@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import Sidebar from "./Components/SideBar/Sidebar";
+import Navbar from "./Components/NavBar/Navbar";
+import DashboardContent from "./Components/DashboardContent/DashboardContent";
+import styles from "./app.module.scss";
+import { useEffect, useState } from "react";
 
-function App() {
+export default function Layout() {
+  const [isMobile, setIsMobile] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+    setIsPopupVisible(false);
+  };
+
+  const togglePopup = () => {
+    console.log("Hello");
+    setIsPopupVisible(!isPopupVisible);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`${styles.container}`}>
+      <Sidebar
+        toggleSidebar={toggleSidebar}
+        togglePopup={togglePopup}
+        isMobile={isMobile}
+        isSidebarOpen={isSidebarOpen}
+        isPopupVisible={isPopupVisible}
+      />
+      <div
+        className={`${
+          isSidebarOpen ? styles.navContainerMbl : styles.navContainer
+        }`}
+      >
+        <Navbar />
+        <DashboardContent />
+      </div>
     </div>
   );
 }
-
-export default App;

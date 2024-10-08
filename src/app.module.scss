@@ -1,0 +1,36 @@
+@import "../src/Components/SideBar/sidebar.module.scss";
+@import "../src/Components/NavBar/navbar.module.scss";
+@import "../src/Components/DashboardContent/dashboardContent.module.scss";
+@import "./global.css";
+
+
+.table-container {
+  overflow-x: auto;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  background-color: #000000e9;
+
+  @media (max-width: 578px) {
+    display: block;
+    overflow: auto;
+  }
+}
+.navContainer {
+  width: 100vw;
+}
+
+.navContainerMbl {
+  @media only screen and (max-width: 575px) {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    position: absolute;
+  }
+}
