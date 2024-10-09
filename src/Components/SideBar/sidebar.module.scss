@@ -12,7 +12,8 @@
     display: flex;
     flex-direction: column;
     border-top: 1px solid #80808047;
-
+    border-bottom: 1px solid #80808047;
+    padding: 1rem 0 2rem 0;
     a {
       color: inherit;
       text-decoration: none;
@@ -23,7 +24,12 @@
     }
 
     .icons {
+      display: flex;
+      align-items: center;
       padding-top: 0.75rem;
+    }
+    @media (max-width: 575px) {
+      padding: 1.25rem;
     }
   }
 
@@ -40,8 +46,6 @@
 
   .upcomingEvents {
     position: absolute;
-    top: 18rem;
-
     h2 {
       font-size: 1.25rem;
       margin-bottom: 0.75rem;
@@ -54,6 +58,9 @@
       li {
         margin-bottom: 1rem;
       }
+    }
+    @media (max-width: 575px) {
+      padding: 1.25rem;
     }
   }
 
@@ -68,7 +75,9 @@
     box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.1);
     padding: 0.3125rem;
     border-radius: 0.3125rem;
-
+    @media (max-width: 575px) {
+      width: 50vh;
+    }
     img {
       border-radius: 50%;
       height: 2.5rem;
@@ -172,7 +181,9 @@
   padding: 0.625rem;
   bottom: auto;
   left: 21.875rem;
-
+  @media (max-width: 768px) {
+    left: 34.875rem;
+  }
   @media (max-width: 575px) {
     left: 9rem;
     top: 3rem;
@@ -180,10 +191,10 @@
 }
 
 .viewProfile {
-  background: white;
+  background: rgb(84, 82, 82);
   border-radius: 0.625rem;
-  width: 6%;
-  height: 5%;
+  height: 4%;
+  top: 0.2rem;
   top: 0.125rem;
   right: 0.3125rem;
   position: absolute;
@@ -201,7 +212,9 @@
   }
 
   @media (max-width: 575px) {
-    left: 21.5rem;
+    width: 8%;
+    height: 5%;
+    left: 21rem;
     position: relative;
   }
 }
